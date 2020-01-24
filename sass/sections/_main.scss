@@ -1,0 +1,32 @@
+body {
+    background-color: $body-hover-color;
+    font-family: $font;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 940px;
+}
+
+h1 {
+    color: $white-color;
+    // padding-left: 30px;
+}
+
+.addButton{
+   background-color: $green-button;
+   color:$white-color;
+
+} 
+
+
+.main-header {
+    background-color: $nav-color;
+    height: 65px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30px;
+    padding-left: 30px;
+}

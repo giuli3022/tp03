@@ -1,0 +1,16 @@
+{
+    "version": 3,
+    "mappings": "AIAA,AAAA,IAAI,CAAC;EACD,gBAAgB,EDAD,OAAO;ECCtB,WAAW,EDFR,cAAc,EAAC,UAAU;ECG5B,MAAM,EAAE,GAAG;EACX,UAAU,EAAE,UAAU;CACzB;;AAED,AAAA,KAAK,CAAC;EACF,KAAK,EAAE,KAAK;CACf;;AAED,AAAA,EAAE,CAAC;EACC,KAAK,EDLI,OAAO;CCOnB;;AAED,AAAA,UAAU,CAAA;EACP,gBAAgB,EDdL,OAAO;ECelB,KAAK,EDXK,OAAO;CCanB;;AAGD,AAAA,YAAY,CAAC;EACT,gBAAgB,EDtBR,OAAO;ECuBf,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,aAAa;EAC9B,WAAW,EAAE,MAAM;EACnB,aAAa,EAAE,IAAI;EACnB,YAAY,EAAE,IAAI;CACrB",
+    "sources": [
+        "main.scss",
+        "common/_all.scss",
+        "common/_mixins.scss",
+        "common/_variables.scss",
+        "sections/_main.scss",
+        "sections/_newEmploee.scss",
+        "sections/_editEmploee.scss",
+        "sections/_deleteEmploee.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}

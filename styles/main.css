@@ -1,0 +1,40 @@
+body {
+  background-color: #F5F5F5;
+  font-family: "Varela Round", sans-serif;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.main {
+  width: 940px;
+}
+
+h1 {
+  color: #FFFFFF;
+}
+
+.addButton {
+  background-color: #449D44;
+  color: #FFFFFF;
+}
+
+.main-header {
+  background-color: #435D7D;
+  height: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+/*# sourceMappingURL=main.css.map */
+
+/*# sourceMappingURL=main.css.map */
