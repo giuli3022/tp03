@@ -6,27 +6,107 @@ body {
 }
 
 .main {
-    width: 940px;
+    width: 1140px;
+    margin: 35px 90px 15px 90px;
+    padding: 0 15px 0 15px;
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    align-items:center;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    border-radius:3px;
+    overflow: hidden;
+    background-color: $white-color;
+    nav{
+        height: 67px;
+        display:flex;
+        justify-content: flex-end;
+        align-items:center;
+        width:100%;
+        margin-top:10px;
+        input{
+            height:20px;
+            margin-right:15px;
+            font-size:14px;
+            padding: 6px 12px;
+            color:#555;
+            border-radius:4px;
+            width: 330px;margin-bottom:15px;
+            font-family: $font;
+            border: 1px solid #ccc;
+            line-height:1.4;
+            &:focus{
+                border-color: $focus-color;
+                outline: 0;
+                box-shadow: inset 0 1px 1px rgba(0,0,0,.05), 0 0 5px rgba(157, 195, 224,.5);
+                
+            }
+        }
+    }
 }
 
 h1 {
     color: $white-color;
-    // padding-left: 30px;
+    font-weight: 500;
+    padding-left: 20px;
 }
 
 .addButton{
-   background-color: $green-button;
-   color:$white-color;
-
+    background-color: $green-button;
+    color:$white-color;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    padding:0 10px 0 10px;
+    width: 172px;
+    height: 35px;
+    font-family:$font;
+    border: none;
+    border-radius:3px;
+    &:hover{
+        background-color: $green-button-hover;
+        cursor:pointer;
+    }
 } 
 
 
 .main-header {
     background-color: $nav-color;
     height: 65px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-right: 30px;
     padding-left: 30px;
+    margin-bottom:10px;
+    .addButton{
+        margin-right: 15px;
+    }
+}
+
+.table-container{
+    display:flex;
+    width:98%;
+    table{
+        width:100%;
+        margin-bottom:20px;
+        margin-top:15px;
+        border-collapse: collapse;
+        tr{
+            width:100%;
+            th{
+                border-bottom: 2px solid #ddd;
+                color: $text-color;
+                text-align: left;
+                padding:12px 15px;
+            }
+            td{
+                text-align: left;
+                padding:12px 15px;
+                color: $text-color;
+            }
+
+        }
+    }
 }
