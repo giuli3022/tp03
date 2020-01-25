@@ -1,0 +1,63 @@
+.addButton{
+    background-color: $green-button;
+    color:$white-color;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    padding:0 10px 0 10px;
+    width: 172px;
+    height: 35px;
+    font-family:$font;
+    border: none;
+    border-radius:3px;
+    &:hover{
+        background-color: $green-button-hover;
+        cursor:pointer;
+    }
+} 
+
+.deleteButton{
+    background-color: $red-color;
+    color:$white-color;
+    display:flex;
+    align-items:center;
+    justify-content: space-around;
+    padding:0 10px 0 10px;
+    width: 115px;
+    height: 35px;
+    font-family:$font;
+    border: none;
+    border-radius:3px;
+    &:hover{
+        background-color: darken($red-color,10%);
+        cursor:pointer;
+    }
+}
+
+.check{
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.checked{
+    display:none;
+}
+
+.unchecked{
+    display:block;
+    position: absolute;
+}
+
+.checkbox{
+    display: none;
+    &:checked{
+        +.checked{
+            display:block;
+            position:absolute;
+            z-index:1;
+            color:#03A9F4;
+        }
+
+    }
+}

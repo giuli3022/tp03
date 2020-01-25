@@ -1,3 +1,82 @@
+.yellow {
+  color: #FFC720;
+  padding-right: 15px;
+}
+.yellow:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.red {
+  color: #F5564B;
+}
+.red:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+}
+
+.addButton {
+  background-color: #5cb85c;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10px 0 10px;
+  width: 172px;
+  height: 35px;
+  font-family: "Varela Round", sans-serif;
+  border: none;
+  border-radius: 3px;
+}
+.addButton:hover {
+  background-color: #398439;
+  cursor: pointer;
+}
+
+.deleteButton {
+  background-color: #F5564B;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10px 0 10px;
+  width: 115px;
+  height: 35px;
+  font-family: "Varela Round", sans-serif;
+  border: none;
+  border-radius: 3px;
+}
+.deleteButton:hover {
+  background-color: #f2291b;
+  cursor: pointer;
+}
+
+.check {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checked {
+  display: none;
+}
+
+.unchecked {
+  display: block;
+  position: absolute;
+}
+
+.checkbox {
+  display: none;
+}
+.checkbox:checked + .checked {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  color: #03A9F4;
+}
+
 body {
   background-color: #F5F5F5;
   font-family: "Varela Round", sans-serif;
@@ -7,7 +86,7 @@ body {
 
 .main {
   width: 1140px;
-  margin: 35px 90px 15px 90px;
+  margin: 35px auto 15px auto;
   padding: 0 15px 0 15px;
   display: flex;
   justify-content: center;
@@ -51,24 +130,6 @@ h1 {
   padding-left: 20px;
 }
 
-.addButton {
-  background-color: #5cb85c;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 0 10px 0 10px;
-  width: 172px;
-  height: 35px;
-  font-family: "Varela Round", sans-serif;
-  border: none;
-  border-radius: 3px;
-}
-.addButton:hover {
-  background-color: #398439;
-  cursor: pointer;
-}
-
 .main-header {
   background-color: #435D7D;
   height: 65px;
@@ -97,6 +158,18 @@ h1 {
 .table-container table tr {
   width: 100%;
 }
+.table-container table tr:nth-child(1):hover {
+  background-color: #FFFFFF;
+}
+.table-container table tr:hover {
+  background-color: #F5F5F5;
+}
+.table-container table tr:nth-child(2n) {
+  background-color: #f9f9f9;
+}
+.table-container table tr:nth-child(2n):hover {
+  background-color: #F5F5F5;
+}
 .table-container table tr th {
   border-bottom: 2px solid #ddd;
   color: #566787;
@@ -107,6 +180,10 @@ h1 {
   text-align: left;
   padding: 12px 15px;
   color: #566787;
+}
+
+footer {
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */
