@@ -1,63 +1,119 @@
-.addButton{
+.addButton {
     background-color: $green-button;
-    color:$white-color;
-    display:flex;
-    align-items:center;
+    color: $white-color;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-    padding:0 10px 0 10px;
+    padding: 0 10px 0 10px;
     width: 172px;
     height: 35px;
-    font-family:$font;
+    font-family: $font;
     border: none;
-    border-radius:3px;
-    &:hover{
-        background-color: $green-button-hover;
-        cursor:pointer;
-    }
-} 
+    border-radius: 3px;
 
-.deleteButton{
+    &:hover {
+        background-color: $green-button-hover;
+        cursor: pointer;
+    }
+}
+
+.deleteButton {
     background-color: $red-color;
-    color:$white-color;
-    display:flex;
-    align-items:center;
+    color: $white-color;
+    display: flex;
+    align-items: center;
     justify-content: space-around;
-    padding:0 10px 0 10px;
+    padding: 0 10px 0 10px;
     width: 115px;
     height: 35px;
-    font-family:$font;
+    font-family: $font;
     border: none;
-    border-radius:3px;
-    &:hover{
-        background-color: darken($red-color,10%);
-        cursor:pointer;
+    border-radius: 3px;
+
+    &:hover {
+        background-color: darken($red-color, 10%);
+        cursor: pointer;
     }
 }
 
-.check{
-    position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-.checked{
-    display:none;
+.check {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.unchecked{
-    display:block;
+.checked {
+    display: none;
+}
+
+.unchecked {
+    display: block;
     position: absolute;
 }
 
-.checkbox{
+.checkbox {
     display: none;
-    &:checked{
-        +.checked{
-            display:block;
-            position:absolute;
-            z-index:1;
-            color:#03A9F4;
+
+    &:checked {
+        +.checked {
+            display: block;
+            position: absolute;
+            z-index: 1;
+            color: #03A9F4;
         }
 
     }
+}
+
+.close {
+    background-color: $white-color;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    opacity: .2;
+    font-size: 21px;
+    font-weight: 700;
+
+    &:hover {
+        opacity: .5;
+        cursor: pointer;
+    }
+}
+
+.cancelButton{
+    color:#333;
+    background-color: #d4d4d4;
+    border-color: #8c8c8c;
+    border-radius:2px;
+    border-style: solid;
+    font-weight:400px;
+    &:hover{
+        background-color:#e6e6e6;
+        border-color:#adadad;
+        cursor:pointer;
+    }
+}
+
+.saveButton{
+    border-radius:2px;
+    border-style: solid;
+    color:#fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    font-weight:400px;
+    &:hover{
+        background-color:#31b0d5;
+        border-color:#269abc;
+        cursor:pointer;
+    }
+}
+
+.modal-button{
+    width:100px;
+    height: 34px;
+    margin-left:5px;
+    font-size:14px;
 }

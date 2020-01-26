@@ -1,80 +1,139 @@
 <!DOCTYPE html>
 <<i lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
-    <link rel="stylesheet" href="./styles/main.css">
-    <title>Manage Employees</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
+        <link rel="stylesheet" href="./styles/main.css">
+        <title>Manage Employees</title>
+    </head>
 
-<body>
-    <section class="main">
-        <header class="main-header">
-            <h1>Manage <strong>Employees</strong></h1>
-            <button class="addButton"><i class="material-icons">&#xE147;</i>Add New Employee</button>
-        </header>
-        <nav>
-            <input type="text" placeholder="Filter...">
-        </nav>
-        <article class="table-container">
-            <table>
-                <tr>
-                    <th>
+    <div>
+        <section class="main">
+            <header class="main-header">
+                <h1>Manage <strong>Employees</strong></h1>
+                <button class="addButton"><i class="material-icons">&#xE147;</i>Add New Employee</button>
+            </header>
+            <nav>
+                <input type="text" placeholder="Filter...">
+            </nav>
+            <article class="table-container">
+                <table>
+                    <tr>
+                        <th>
                             <label for="checkAll" class="check">
                                 <i class="material-icons unchecked">check_box_outline_blank</i>
                                 <input type="checkbox" class="checkbox" id="checkAll">
                                 <i class="material-icons checked">check_box</i>
                             </label>
-                            
-                    </th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Actions</th>
-                </tr>
-                <tr>
-                    <label for="checkAll" class="check">
-                        <i class="material-icons unchecked">check_box_outline_blank</i>
-                        <input type="checkbox" class="checkbox" id="checkAll">
-                        <i class="material-icons checked">check_box</i>
-                    </label>
-                    <td>Fila de prueba 1</td>
-                    <td>Fila de prueba 1</td>
-                    <td>Fila de prueba 1</td>
-                    <td>Fila de prueba 1</td>
-                    <td><i class="material-icons yellow" title="Edit">&#xE254;</i><i class="material-icons red" title="Delete">&#xE872;</i></td>
-                </tr>
-                <tr>
-                    <label for="checkAll" class="check">
-                        <i class="material-icons unchecked">check_box_outline_blank</i>
-                        <input type="checkbox" class="checkbox" id="checkAll">
-                        <i class="material-icons checked">check_box</i>
-                    </label>
-                    <td>Fila de prueba 2</td>
-                    <td>Fila de prueba 2</td>
-                    <td>Fila de prueba 2</td>
-                    <td>Fila de prueba 2</td>
-                    <td><i class="material-icons yellow" title="Edit">&#xE254;</i><i class="material-icons red" title="Delete">&#xE872;</i></td>
-                </tr>
 
-            </table>
-        </article>
-        <footer>
-            <button class="deleteButton"> <i class="material-icons" title="Delete">&#xE872;</i> Delete All</button>
-        </footer>
-    </section>
-    <section>
-        <div class="nuevoEmploee"></div>
-    </section>
-    <section>
-        <div class="modificarEmploee"></div>
-    </section>
-    <section class="deleteButton" id="eliminarEmployee"></section>
-</body>
+                        </th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="check">
+                                <i class="material-icons unchecked">check_box_outline_blank</i>
+                                <input type="checkbox" class="checkbox">
+                                <i class="material-icons checked">check_box</i>
+                            </label>
+                        </td>
+                        <td>Fila de prueba 1</td>
+                        <td>Fila de prueba 1</td>
+                        <td>Fila de prueba 1</td>
+                        <td>Fila de prueba 1</td>
+                        <td><i class="material-icons yellow" title="Edit">&#xE254;</i><i class="material-icons red"
+                                title="Delete">&#xE872;</i></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label class="check">
+                                <i class="material-icons unchecked">check_box_outline_blank</i>
+                                <input type="checkbox" class="checkbox">
+                                <i class="material-icons checked">check_box</i>
+                            </label>
+                        </td>
+                        <td>Fila de prueba 2</td>
+                        <td>Fila de prueba 2</td>
+                        <td>Fila de prueba 2</td>
+                        <td>Fila de prueba 2</td>
+                        <td><i class="material-icons yellow" title="Edit">&#xE254;</i><i class="material-icons red"
+                                title="Delete">&#xE872;</i></td>
+                    </tr>
 
-</html
+                </table>
+            </article>
+            <footer>
+                <button class="deleteButton"> <i class="material-icons" title="Delete">&#xE872;</i> Delete All</button>
+            </footer>
+        </section>
+        <section class="modal">
+            <article class="modal-form">
+                <header>
+                    <h2>Add Employee</h2>
+                    <button class="close">x</button>
+                </header>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" maxlength="50" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <label for="Address">Address</label>
+                    <textarea id="Address" rows="2" maxlength="60" required></textarea>
+                    <label for="Phone">Phone</label>
+                    <input type="tel" id="Phone" required>
+                </form>
+                <footer>
+                    <input type="button" value="Cancel" class="cancelButton modal-button">
+                    <input type="submit" value="Add" class="addButton modal-button">
+                </footer>
+            </article>
+        </section>
+        <section class="modal">
+            <article class="modal-form">
+                <header>
+                    <h2>Edit Employee</h2>
+                    <button class="close">x</button>
+                </header>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" maxlength="50" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                    <label for="Address">Address</label>
+                    <textarea id="Address" rows="2" maxlength="60" required></textarea>
+                    <label for="Phone">Phone</label>
+                    <input type="tel" id="Phone" required>
+                </form>
+                <footer>
+                    <input type="button" value="Cancel" class="cancelButton modal-button">
+                    <input type="submit" value="Save" class="saveButton modal-button">
+                </footer>
+            </article>
+        </section>
+        <section class="modal">
+            <article class="modal-form delete">
+                <header>
+                    <h2>Delete Employee</h2>
+                    <button class="close">x</button>
+                </header>
+                <div class="delete-question">
+                    <p>Are you sure you want to delete this records?</p>
+                    <p>This action cannot be undone</p>
+                </div>
+                <footer>
+                    <input type="button" value="Cancel" class="cancelButton modal-button">
+                    <input type="submit" value="Delete" class="deleteButton modal-button">
+                </footer>
+            </article>
+        </section>
+    </body>
+
+    </html
