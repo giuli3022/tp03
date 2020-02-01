@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="./styles/main.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
             integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+        <script src="js/getEmployees.js"></script>
+
         <title>Manage Employees</title>
     </head>
 
@@ -23,8 +25,8 @@
                 <input type="text" placeholder="Filter...">
             </nav>
             <article class="table-container">
-                <table>
-                    <tr>
+                <table id = "employees-list">
+                    <tr id="table-header">
                         <th>
                             <label for="checkAll" class="check">
                                 <i class="material-icons unchecked">check_box_outline_blank</i>
@@ -52,8 +54,11 @@
                         <td>Fila de prueba 1</td>
                         <td>Fila de prueba 1</td>
                         <td>Fila de prueba 1</td>
-                        <td><i class="material-icons yellow" title="Edit">&#xE254;</i><i class="material-icons red"
-                                title="Delete">&#xE872;</i></td>
+                        <td>
+                            <i class="material-icons yellow" title="Edit">&#xE254;</i>
+                            <i class="material-icons red"
+                                title="Delete">&#xE872;</i>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -137,6 +142,10 @@
                 </footer>
             </article>
         </section>
+        <footer>
+            <!-- <script src="js/getEmployeesHTML.js"></script> -->
+
+        </footer>
         </body>
 
         </html
