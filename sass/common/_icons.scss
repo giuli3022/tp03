@@ -1,16 +1,19 @@
 .yellow{
     color: $yellow-color;
-    padding-right:15px;
+    transition: transform 0.2s ease;
     &:hover{
-        transform: scale(1.5);
         cursor:pointer;
+        transform: scale(1.5);
+        transition: transform 0.2s ease;
     }
 }
 
 .red{
     color:$red-color;
+    transition: transform 0.2s ease;
     &:hover{
-        transform: scale(1.5);
         cursor:pointer;
+        transform: scale(1.5);
+        transition: transform 0.2s ease;
     }
 }

@@ -1,76 +1,76 @@
 .modal {
     background-color: #7b7b7b;
-    opacity: .7;
     display: flex;
-    justify-content: center;
     height:100vh;
+    justify-content: center;
+    opacity: .7;
 }
 
 .modal-form {
-    width: 400px;
-    height: 491px;
-    margin-top:30px;
-    display: flex;
-    flex-direction: column;
     background-color: $white-color;
     border-radius: 3px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 491px;
+    margin-top:30px;
     overflow: hidden;
+    width: 400px;
     header {
-        padding: 20px 30px;
-        display: flex;
-        justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid #e5e5e5;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 30px;
         h2{
-            margin:0;
             color: $text-color;
             font-size:18px;
-            line-height: 1.4;
             font-style: normal;
             font-weight:500;
+            line-height: 1.4;
+            margin:0;
         }
     }
     form{
-        height: 416px;
         display: flex;
         flex-direction: column;
+        height: 416px;
         padding: 20px 30px;
         label{
-            margin-bottom:5px;
-            font-size:13px;
             color: $text-color;
+            font-size:13px;
             font-style: normal;
+            margin-bottom:5px;
         }
         input{
+            border: 1px solid #ccc;
+            border-radius:2px;
+            border-color: #ddd;
+            box-shadow:none;
             box-sizing:border-box;
+            color:#555;
+            font-size:14px;
             margin-bottom:15px;
             padding:6px 12px;
             width:338px;
-            border-radius:2px;
-            box-shadow:none;
-            border-color: #ddd;
-            color:#555;
-            font-size:14px;
-            border: 1px solid #ccc;
             &:focus{
-                box-shadow: none;
                 border-color:#ddd;
+                box-shadow: none;
                 outline:0;
             }
         }
         textarea{
+            border: 1px solid #ccc;
+            border-color: #ddd;
+            border-radius:2px;
+            box-shadow:none;
             box-sizing:border-box;
+            color:#555;
+            font-size:14px;
             margin-bottom:15px;
             padding:6px 12px;
             width:338px;
-            border-radius:2px;
-            box-shadow:none;
-            border-color: #ddd;
-            color:#555;
-            font-size:14px;
-            border: 1px solid #ccc;
             &:focus{
                 box-shadow: none;
                 border-color:#ddd;
@@ -80,15 +80,15 @@
     }
 
     footer{
-        width:100%;
-        height:75px;
-        background-color: $modal-footer-background;
-        display:flex;
-        justify-content: flex-end;
         align-items: center;
-        padding: 20px 30px;
+        background-color: $modal-footer-background;
         box-sizing: border-box;
+        display:flex;
+        height:75px;
+        justify-content: flex-end;
         margin-bottom:0;
+        padding: 20px 30px;
+        width:100%;
     }
 }
 
@@ -99,15 +99,15 @@
 .delete-question{
     padding: 20px 30px;
     p{
-        margin-bottom:10px;
         color: $text-color;
         font-style: normal;
+        margin-bottom:10px;
         &:nth-child(1){
             font-size: 13px;
         }
         &:nth-child(2){
-            font-size:11.05px;
             color: #8a6d3b;
+            font-size:11.05px;
             margin-top:0;
         }
     }

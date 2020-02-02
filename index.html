@@ -25,57 +25,57 @@
                 <input type="text" placeholder="Filter...">
             </nav>
             <article class="table-container">
-                <table id = "employees-list">
-                    <tr id="table-header">
-                        <th>
-                            <label for="checkAll" class="check">
-                                <i class="material-icons unchecked">check_box_outline_blank</i>
-                                <input type="checkbox" class="checkbox" id="checkAll">
-                                <i class="material-icons checked">check_box</i>
-                            </label>
-
-                        </th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Phone</th>
-                        <th>Actions</th>
-                    </tr>
-
-                    <tr>
-                        <td>
-                            <label class="check">
-                                <i class="material-icons unchecked">check_box_outline_blank</i>
-                                <input type="checkbox" class="checkbox">
-                                <i class="material-icons checked">check_box</i>
-                            </label>
-                        </td>
-                        <td>Fila de prueba 1</td>
-                        <td>Fila de prueba 1</td>
-                        <td>Fila de prueba 1</td>
-                        <td>Fila de prueba 1</td>
-                        <td>
-                            <i class="material-icons yellow" title="Edit">&#xE254;</i>
-                            <i class="material-icons red"
-                                title="Delete">&#xE872;</i>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="check">
-                                <i class="material-icons unchecked">check_box_outline_blank</i>
-                                <input type="checkbox" class="checkbox">
-                                <i class="material-icons checked">check_box</i>
-                            </label>
-                        </td>
-                        <td>Fila de prueba 2</td>
-                        <td>Fila de prueba 2</td>
-                        <td>Fila de prueba 2</td>
-                        <td>Fila de prueba 2</td>
-                        <td><i class="material-icons yellow" title="Edit">&#xE254;</i><i class="material-icons red"
-                                title="Delete">&#xE872;</i></td>
-                    </tr>
-
+                <table>
+                    <thead>
+                        <tr id="table-header">
+                            <th>
+                                <label for="checkAll" class="check">
+                                    <i class="material-icons unchecked">check_box_outline_blank</i>
+                                    <input type="checkbox" class="checkbox" id="checkAll">
+                                    <i class="material-icons checked">check_box</i>
+                                </label>
+                            </th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="employees-list">
+                        <tr>
+                            <td>
+                                <label class="check">
+                                    <i class="material-icons unchecked">check_box_outline_blank</i>
+                                    <input type="checkbox" class="checkbox">
+                                    <i class="material-icons checked">check_box</i>
+                                </label>
+                            </td>
+                            <td>Fila de prueba 1</td>
+                            <td>Fila de prueba 1</td>
+                            <td>Fila de prueba 1</td>
+                            <td>Fila de prueba 1</td>
+                            <td>
+                                <i class="material-icons yellow" title="Edit">&#xE254;</i>
+                                <i class="material-icons red" title="Delete">&#xE872;</i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="check">
+                                    <i class="material-icons unchecked">check_box_outline_blank</i>
+                                    <input type="checkbox" class="checkbox">
+                                    <i class="material-icons checked">check_box</i>
+                                </label>
+                            </td>
+                            <td>Fila de prueba 2</td>
+                            <td>Fila de prueba 2</td>
+                            <td>Fila de prueba 2</td>
+                            <td>Fila de prueba 2</td>
+                            <td><i class="material-icons yellow" title="Edit">&#xE254;</i><i class="material-icons red"
+                                    title="Delete">&#xE872;</i></td>
+                        </tr>
+                    </tbody>
                 </table>
             </article>
             <footer>
@@ -143,7 +143,7 @@
             </article>
         </section>
         <footer>
-            <!-- <script src="js/getEmployeesHTML.js"></script> -->
+            <script src="js/getEmployeesHTML.js"></script>
 
         </footer>
         </body>

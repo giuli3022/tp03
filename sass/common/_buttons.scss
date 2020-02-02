@@ -1,15 +1,15 @@
 .addButton {
+    align-items: center;
     background-color: $green-button;
+    border: none;
+    border-radius: 3px;
     color: $white-color;
     display: flex;
-    align-items: center;
+    font-family: $font;
+    height: 35px;
     justify-content: space-around;
     padding: 0 10px 0 10px;
     width: 172px;
-    height: 35px;
-    font-family: $font;
-    border: none;
-    border-radius: 3px;
 
     &:hover {
         background-color: $green-button-hover;
@@ -18,17 +18,17 @@
 }
 
 .deleteButton {
+    align-items: center;
     background-color: $red-color;
+    border: none;
+    border-radius: 3px;
     color: $white-color;
     display: flex;
-    align-items: center;
+    font-family: $font;
+    height: 35px;
     justify-content: space-around;
     padding: 0 10px 0 10px;
     width: 115px;
-    height: 35px;
-    font-family: $font;
-    border: none;
-    border-radius: 3px;
 
     &:hover {
         background-color: darken($red-color, 10%);
@@ -37,10 +37,11 @@
 }
 
 .check {
-    position: relative;
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
+    position: relative;
+    
 }
 
 .checked {
@@ -57,63 +58,74 @@
 
     &:checked {
         +.checked {
+            color: #03A9F4;
             display: block;
             position: absolute;
             z-index: 1;
-            color: #03A9F4;
         }
 
     }
 }
 
 .close {
+    align-items: center;
     background-color: $white-color;
     border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: #000;
-    opacity: .2;
+    display: flex;
     font-size: 21px;
     font-weight: 700;
+    justify-content: center;
+    opacity: .2;
 
     &:hover {
+        cursor: pointer;
         opacity: .5;
+    }
+}
+
+.cancelButton {
+    background-color: #d4d4d4;
+    border-color: #8c8c8c;
+    border-radius: 2px;
+    border-style: solid;
+    color: #333;
+    font-weight: 400px;
+
+    &:hover {
+        background-color: #e6e6e6;
+        border-color: #adadad;
         cursor: pointer;
     }
 }
 
-.cancelButton{
-    color:#333;
-    background-color: #d4d4d4;
-    border-color: #8c8c8c;
-    border-radius:2px;
-    border-style: solid;
-    font-weight:400px;
-    &:hover{
-        background-color:#e6e6e6;
-        border-color:#adadad;
-        cursor:pointer;
-    }
-}
-
-.saveButton{
-    border-radius:2px;
-    border-style: solid;
-    color:#fff;
+.saveButton {
     background-color: #5bc0de;
     border-color: #46b8da;
-    font-weight:400px;
-    &:hover{
-        background-color:#31b0d5;
-        border-color:#269abc;
-        cursor:pointer;
+    border-radius: 2px;
+    border-style: solid;
+    color: #fff;
+    font-weight: 400px;
+
+    &:hover {
+        background-color: #31b0d5;
+        border-color: #269abc;
+        cursor: pointer;
     }
 }
 
-.modal-button{
-    width:100px;
+.modal-button {
+    font-size: 14px;
     height: 34px;
-    margin-left:5px;
-    font-size:14px;
+    margin-left: 5px;
+    width: 100px;
+}
+
+.transparent-button {
+    background: #fff;
+    border: none;
+
+    &:focus {
+        outline: none;
+    }
 }
