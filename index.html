@@ -63,14 +63,14 @@
                     <input type="text" id="name" maxlength="50" required>
                     <label for="email">Email</label>
                     <input type="email" id="email" required>
-                    <label for="Address">Address</label>
-                    <textarea id="Address" rows="2" maxlength="60" required></textarea>
-                    <label for="Phone">Phone</label>
-                    <input type="tel" id="Phone" required>
+                    <label for="address">Address</label>
+                    <textarea id="address" rows="2" maxlength="60" required></textarea>
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" required>
                 </form>
                 <footer>
-                    <input type="button" value="Cancel" class="close cancelButton modal-button">
-                    <input type="submit" value="Add" class="addButton modal-button">
+                    <input type="button" value="Cancel" class=" close cancelButton modal-button">
+                    <input id="create-employee" type="submit" value="Add" class="addButton modal-button">
                 </footer>
             </article>
         </section>
@@ -114,6 +114,7 @@
         </section>
         <footer>
             <script src="js/getEmployeesHTML.js"></script>
+            <script src="js/postEmployee.js"></script>
             <script src="js/delete.js"></script>
             <script src="js/modalButtons.js"></script>
 
