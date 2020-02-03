@@ -67,7 +67,7 @@
     }
 }
 
-.close {
+.closeButton {
     align-items: center;
     background-color: $white-color;
     border: none;
@@ -91,6 +91,7 @@
     border-style: solid;
     color: #333;
     font-weight: 400px;
+    opacity: 1;
 
     &:hover {
         background-color: #e6e6e6;

@@ -82,7 +82,11 @@ const createEditButton = () =>{
     iconEdit.classList.add("material-icons", "yellow");
     iconEdit.innerHTML = "&#xE254";
     button.appendChild(iconEdit);
-    //ACÁ VAN LAS FUNCIONES AL HACER CLIC EN BOTON EDIT
+    button.addEventListener("click",()=>{
+        activateModal(document.querySelector("#modal-edit"));
+        //ACÁ VAN LAS FUNCIONES AL HACER CLIC EN BOTON EDIT
+
+    })
     // EL ID DE CADA EMPLOYEE ESTA EN EL PRIMER TD, DONDE ESTA EL BOTON DE SELECT, LO PUEDEN SACAR DE AHI
     return button;
 }
@@ -95,17 +99,37 @@ const createDeleteButton = () =>{
     iconDelete.classList.add("material-icons", "red");
     iconDelete.innerHTML = "&#xE872";
     button.appendChild(iconDelete);
+    button.addEventListener("click",()=>{
+        activateModal(document.querySelector("#modal-delete"));
     //ACA VAN LAS FUNCIONES AL HACER CLIC EN BOTON DELETE
+
+    })
     // EL ID DE CADA EMPLOYEE ESTA EN EL PRIMER TD, DONDE ESTA EL BOTON DE SELECT, LO PUEDEN SACAR DE AHI
     return button;
 }
 
+const activateModal = (sectiontoChange)=>{
+    sectiontoChange.classList.add("overlay");
+}
+
+
+///////////// FUNCIONES DEL BOTON "AGREGAR EMPLEADO - PARA HACER QUE FUNCIONE EL MODAL"
+    let addButton = document.querySelector("#addEmployee");
+    addButton.addEventListener("click",()=>{
+        activateModal(document.querySelector("#modal-add"));
+        ///OTRAS FUNCIONES DE AGREGAR
+    })
+///////////////////////////////////////////
+
+////////////FUNCIONES DEL BOTON "ELIMINAR TODO - PARA HACER QUE FUNCIONE EL MODAL"
+let deleteAllButton = document.querySelector("#button-delete-all");
+deleteAllButton.addEventListener("click",()=>{
+    activateModal(document.querySelector("#modal-delete"));
+    ///OTRAS FUNCIONES DE ELIMINAR
+})
+
 try {
     module.exports = {
         getEmployeesHTML,
-        createSelectButton,
-        employeesActions,
-        createEditButton,
-        createDeleteButton
     }
  } catch (e) {}
