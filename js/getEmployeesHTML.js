@@ -31,7 +31,7 @@ const getEmployeesHTML = () => {
         let cellPhone = document.createElement("td");
         cellPhone.innerHTML = employee.phone;
 
-        let cellActions = employeesActions(employee.id); //acciones de empleados por cada uno
+        let cellActions = employeesActions(employee.id, employee.fullname,employee.email, employee.address,employee.phone); //acciones de empleados por cada uno
 
         row.appendChild(tdSelect);
         row.appendChild(cellName);
@@ -66,16 +66,16 @@ const createSelectButton = () => {
     return cell;
 }
 
-const employeesActions = (id) => {
+const employeesActions = (id, name, mail, adress, phone) => {
     let cell = document.createElement("td");
-    let iconEdit = createEditButton(id);
+    let iconEdit = createEditButton(id, name, mail, adress, phone);
     let iconDelete = createDeleteButton(id);
     cell.appendChild(iconEdit);
     cell.appendChild(iconDelete);
     return cell;
 }
 
-const createEditButton = () => {
+const createEditButton = (idtoChange, name, mail, adress, phone) => {
     let button = document.createElement("button");
     button.classList.add("transparent-button");
     let iconEdit = document.createElement("i");
@@ -85,18 +85,20 @@ const createEditButton = () => {
     button.appendChild(iconEdit);
 
     button.addEventListener("click", () => {
-        activateModal(document.querySelector("#modal-edit"));
-        let id = button.parentElement.parentElement.firstChild.id; 
+        activateModal("#modal-edit");
+        document.querySelector("#name-edit").value = name;
+        document.querySelector("#email-edit").value = mail;
+        document.querySelector("#Address-edit").value = adress;
+        document.querySelector("#Phone-edit").value = phone;
+
         let botoneditar = document.querySelector("#edit-save-button");
-        console.log(id);
         botoneditar.addEventListener("click",()=>{
             let fullname = document.querySelector("#name-edit").value;
             let email = document.querySelector("#email-edit").value;
             let address = document.querySelector("#Address-edit").value;
             let phone = document.querySelector("#Phone-edit").value;
-
-            modifyEmployee(id, fullname, email, address, phone);
-            console.log(id);
+            modifyEmployee(idtoChange, fullname, email, address, phone);
+            idtoChange = ""
             getEmployees();
             botoneditar.parentElement.parentElement.classList.add("slide-out-top");
             botoneditar.parentElement.parentElement.parentElement.classList.add("fade-out");
@@ -119,13 +121,12 @@ const createDeleteButton = idaelim => {
                 iconDelete.innerHTML = "&#xE872";
     button.appendChild(iconDelete);
     button.addEventListener("click", () => {
-        activateModal(document.querySelector("#modal-delete"));
+        activateModal("#modal-delete");
         let botonelim = document.querySelector("#delete-button"); // llama al boton eliminar que esta en el modal
         botonelim.addEventListener("click",()=>{
             botonelim.parentElement.parentElement.classList.add("slide-out-top");
             botonelim.parentElement.parentElement.parentElement.classList.add("fade-out");
             deleteEmployee(idaelim);
-            console.log(idaelim);
             idaelim="";
             setTimeout(()=>{
             botonelim.parentElement.parentElement.parentElement.classList.remove("overlay");
@@ -137,7 +138,8 @@ const createDeleteButton = idaelim => {
     return button;
 }
 
-const activateModal = (sectiontoChange) => {
+const activateModal = (idsectiontoChange) => {
+        let sectiontoChange = document.querySelector(idsectiontoChange)
         sectiontoChange.classList.add("overlay");
     }
 
