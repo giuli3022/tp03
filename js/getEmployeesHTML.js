@@ -90,12 +90,13 @@ const createEditButton = () => {
         let botoneditar = document.querySelector("#edit-save-button");
 
         botoneditar.addEventListener("click",()=>{
-            let fullname = document.querySelector("#name").value;
-            let email = document.querySelector("#email").value;
-            let address = document.querySelector("#Address").value;
-            let phone = document.querySelector("#Phone").value;
+            let fullname = document.querySelector("#name-edit").value;
+            let email = document.querySelector("#email-edit").value;
+            let address = document.querySelector("#Address-edit").value;
+            let phone = document.querySelector("#Phone-edit").value;
 
             modifyEmployee(id, fullname, email, address, phone);
+            getEmployees();
             botoneditar.parentElement.parentElement.classList.add("slide-out-top");
             botoneditar.parentElement.parentElement.parentElement.classList.add("fade-out");
             setTimeout(()=>{
