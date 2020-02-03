@@ -3,7 +3,6 @@
   transition: transform 0.2s ease;
 }
 .yellow:hover {
-  cursor: pointer;
   transform: scale(1.5);
   transition: transform 0.2s ease;
 }
@@ -13,7 +12,6 @@
   transition: transform 0.2s ease;
 }
 .red:hover {
-  cursor: pointer;
   transform: scale(1.5);
   transition: transform 0.2s ease;
 }
@@ -133,11 +131,14 @@
 }
 
 .transparent-button {
-  background: #fff;
+  background: transparent;
   border: none;
 }
 .transparent-button:focus {
   outline: none;
+}
+.transparent-button:hover {
+  cursor: pointer;
 }
 
 body {
@@ -335,6 +336,7 @@ footer {
   margin-bottom: 15px;
   padding: 6px 12px;
   width: 338px;
+  font-family: "Varela Round", sans-serif;
 }
 .modal-form form textarea:focus {
   box-shadow: none;
