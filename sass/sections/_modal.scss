@@ -1,9 +1,17 @@
 .modal {
-    background-color: #7b7b7b;
-    display: flex;
-    height:100vh;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+    height: 100vh;
+    left: 0;
     justify-content: center;
-    opacity: .7;
+    align-items: center;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    transition: opacity 1s ease;
 }
 
 .modal-form {
@@ -14,101 +22,137 @@
     display: flex;
     flex-direction: column;
     height: 491px;
-    margin-top:30px;
+    margin-top: 30px;
     overflow: hidden;
     width: 400px;
+
     header {
         align-items: center;
         border-bottom: 1px solid #e5e5e5;
         display: flex;
         justify-content: space-between;
         padding: 20px 30px;
-        h2{
+
+        h2 {
             color: $text-color;
-            font-size:18px;
+            font-size: 18px;
             font-style: normal;
-            font-weight:500;
+            font-weight: 500;
             line-height: 1.4;
-            margin:0;
+            margin: 0;
         }
     }
-    form{
+
+    form {
         display: flex;
         flex-direction: column;
         height: 416px;
         padding: 20px 30px;
-        label{
+
+        label {
             color: $text-color;
-            font-size:13px;
+            font-size: 13px;
             font-style: normal;
-            margin-bottom:5px;
+            margin-bottom: 5px;
         }
-        input{
+
+        input {
             border: 1px solid #ccc;
-            border-radius:2px;
+            border-radius: 2px;
             border-color: #ddd;
-            box-shadow:none;
-            box-sizing:border-box;
-            color:#555;
-            font-size:14px;
-            margin-bottom:15px;
-            padding:6px 12px;
-            width:338px;
-            &:focus{
-                border-color:#ddd;
+            box-shadow: none;
+            box-sizing: border-box;
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 15px;
+            padding: 6px 12px;
+            width: 338px;
+
+            &:focus {
+                border-color: #ddd;
                 box-shadow: none;
-                outline:0;
+                outline: 0;
             }
         }
-        textarea{
+
+        textarea {
             border: 1px solid #ccc;
             border-color: #ddd;
-            border-radius:2px;
-            box-shadow:none;
-            box-sizing:border-box;
-            color:#555;
-            font-size:14px;
-            margin-bottom:15px;
-            padding:6px 12px;
-            width:338px;
-            &:focus{
+            border-radius: 2px;
+            box-shadow: none;
+            box-sizing: border-box;
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 15px;
+            padding: 6px 12px;
+            width: 338px;
+
+            &:focus {
                 box-shadow: none;
-                border-color:#ddd;
-                outline:0;
+                border-color: #ddd;
+                outline: 0;
             }
         }
     }
 
-    footer{
+    footer {
         align-items: center;
         background-color: $modal-footer-background;
         box-sizing: border-box;
-        display:flex;
-        height:75px;
+        display: flex;
+        height: 75px;
         justify-content: flex-end;
-        margin-bottom:0;
+        margin-bottom: 0;
         padding: 20px 30px;
-        width:100%;
+        width: 100%;
     }
 }
 
-.delete{
+.delete {
     height: 239px;
 }
 
-.delete-question{
+.delete-question {
     padding: 20px 30px;
-    p{
+
+    p {
         color: $text-color;
         font-style: normal;
-        margin-bottom:10px;
-        &:nth-child(1){
+        margin-bottom: 10px;
+
+        &:nth-child(1) {
             font-size: 13px;
         }
-        &:nth-child(2){
+
+        &:nth-child(2) {
             color: #8a6d3b;
-            font-size:11.05px;
-            margin-top:0;
+            font-size: 11.05px;
+            margin-top: 0;
         }
     }
 }
+
+
+.overlay {
+    display: flex;
+    transition: opacity 1s ease;
+    -webkit-animation: fade-in 0.5s ease;
+    animation: fade-in 0.5s ease;
+}
+
+@-webkit-keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
