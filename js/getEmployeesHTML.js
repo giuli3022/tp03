@@ -1,13 +1,12 @@
 try {
     const jsGetEmployees = require('./getEmployees'),
-    baseUrl = jsGetEmployees.baseUrl,
-    employees = jsGetEmployees.employees,
-    handleError = jsGetEmployees.handleError,
-    getEmployees = jsGetEmployees.getEmployees;
-
-} catch (e) {}
-
-
+        baseUrl = jsGetEmployees.baseUrl,
+        employees = jsGetEmployees.employees,
+        handleError = jsGetEmployees.handleError,
+        getEmployees = jsGetEmployees.getEmployees;
+    const del = require('./delete'),
+        deleteEmployee = del.deleteEmployee;
+} catch (e) { }
 
 
 const getEmployeesHTML = () => {
@@ -30,7 +29,7 @@ const getEmployeesHTML = () => {
         let cellPhone = document.createElement("td");
         cellPhone.innerHTML = employee.phone;
 
-        let cellActions = employeesActions();
+        let cellActions = employeesActions(employee.id); //acciones de empleados por cada uno
 
         row.appendChild(tdSelect);
         row.appendChild(cellName);
@@ -74,38 +73,72 @@ const employeesActions = () => {
     return cell;
 }
 
-const createEditButton = () =>{
+const createEditButton = () => {
     let button = document.createElement("button");
     button.classList.add("transparent-button");
     let iconEdit = document.createElement("i");
-    iconEdit.setAttribute("title","Edit");
+    iconEdit.setAttribute("title", "Edit");
     iconEdit.classList.add("material-icons", "yellow");
     iconEdit.innerHTML = "&#xE254";
     button.appendChild(iconEdit);
-    //ACÁ VAN LAS FUNCIONES AL HACER CLIC EN BOTON EDIT
+    button.addEventListener("click", () => {
+        activateModal(document.querySelector("#modal-edit"));
+        //ACÁ VAN LAS FUNCIONES AL HACER CLIC EN BOTON EDIT
+
+    })
     // EL ID DE CADA EMPLOYEE ESTA EN EL PRIMER TD, DONDE ESTA EL BOTON DE SELECT, LO PUEDEN SACAR DE AHI
     return button;
 }
 
-const createDeleteButton = () =>{
+const createDeleteButton = id => {
     let button = document.createElement("button");
     button.classList.add("transparent-button");
     let iconDelete = document.createElement("i");
-    iconDelete.setAttribute("title","Delete");
+    iconDelete.setAttribute("title", "Delete");
     iconDelete.classList.add("material-icons", "red");
     iconDelete.innerHTML = "&#xE872";
     button.appendChild(iconDelete);
-    //ACA VAN LAS FUNCIONES AL HACER CLIC EN BOTON DELETE
-    // EL ID DE CADA EMPLOYEE ESTA EN EL PRIMER TD, DONDE ESTA EL BOTON DE SELECT, LO PUEDEN SACAR DE AHI
+    button.addEventListener("click", () => {
+        activateModal(document.querySelector("#modal-delete"));
+        let id = button.parentElement.parentElement.firstChild.id; //llamar al ID que esta en el primer TD
+        let botonelim = document.querySelector("#delete-button"); // llama al boton eliminar que esta en el modal
+        botonelim.addEventListener("click",()=>{
+            botonelim.parentElement.parentElement.classList.add("slide-out-top");
+            botonelim.parentElement.parentElement.parentElement.classList.add("fade-out");
+            deleteEmployee(id); // ejecuta la funcion
+
+            setTimeout(()=>{
+            botonelim.parentElement.parentElement.parentElement.classList.remove("overlay");
+            botonelim.parentElement.parentElement.parentElement.classList.remove("fade-out");
+            botonelim.parentElement.parentElement.classList.remove("slide-out-top");
+            }, 500)
+        });
+    });
     return button;
 }
 
-try {
-    module.exports = {
-        getEmployeesHTML,
-        createSelectButton,
-        employeesActions,
-        createEditButton,
-        createDeleteButton
+const activateModal = (sectiontoChange) => {
+        sectiontoChange.classList.add("overlay");
     }
- } catch (e) {}
+
+
+    ///////////// FUNCIONES DEL BOTON "AGREGAR EMPLEADO - PARA HACER QUE FUNCIONE EL MODAL"
+    let addButton = document.querySelector("#addEmployee");
+    addButton.addEventListener("click", () => {
+        activateModal(document.querySelector("#modal-add"));
+        ///OTRAS FUNCIONES DE AGREGAR
+    })
+    ///////////////////////////////////////////
+
+    ////////////FUNCIONES DEL BOTON "ELIMINAR TODO - PARA HACER QUE FUNCIONE EL MODAL"
+    let deleteAllButton = document.querySelector("#button-delete-all");
+    deleteAllButton.addEventListener("click", () => {
+        activateModal(document.querySelector("#modal-delete"));
+        ///OTRAS FUNCIONES DE ELIMINAR
+    })
+
+    try {
+        module.exports = {
+            getEmployeesHTML,
+        }
+    } catch (e) { }

@@ -1,10 +1,6 @@
 try {
     const employeesHTML = require('./getEmployeesHTML');
     const getEmployeesHTML = employeesHTML.getEmployeesHTML;
-    const createSelectButton = employeesHTML.createSelectButton;
-    const employeesActions = employeesHTML.employeesActions;
-    const createEditButton = employeesHTML.createEditButton;
-    const createDeleteButton = employeesHTML.createDeleteButton;
 } catch (e) {}
 
 const baseUrl = "https://tp-js-2-api-wjfqxquokl.now.sh/users";
@@ -26,9 +22,6 @@ const getEmployees = async () => {
         handleError();
     }
 };
-
-
-
 
 getEmployees();
 
