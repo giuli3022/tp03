@@ -1,11 +1,9 @@
 try {
     const jsGetEmployees = require('./getEmployees'),
-
         baseUrl = jsGetEmployees.baseUrl,
         employees = jsGetEmployees.employees,
         handleError = jsGetEmployees.handleError,
         getEmployees = jsGetEmployees.getEmployees;
-
     const del = require('./delete'),
         deleteEmployee = del.deleteEmployee;
 } catch (e) { }
@@ -97,20 +95,26 @@ const createDeleteButton = id => {
     button.classList.add("transparent-button");
     let iconDelete = document.createElement("i");
     iconDelete.setAttribute("title", "Delete");
-    //buscar el addEventListener de esto. El modal tiene que tener el delette employee. 
-    button.addEventListener("click", (e) => {
-        let id = button.parentElement.parentElement.firstChild.id;
-        deleteEmployee(id)
-    });
     iconDelete.classList.add("material-icons", "red");
     iconDelete.innerHTML = "&#xE872";
     button.appendChild(iconDelete);
     button.addEventListener("click", () => {
         activateModal(document.querySelector("#modal-delete"));
-        //ACA VAN LAS FUNCIONES AL HACER CLIC EN BOTON DELETE
-        //EL ID DE CADA EMPLOYEE ESTA EN EL PRIMER TD, DONDE ESTA EL BOTON DE SELECT, LO PUEDEN SACAR DE AHI
-        return button;
+        let id = button.parentElement.parentElement.firstChild.id; //llamar al ID que esta en el primer TD
+        let botonelim = document.querySelector("#delete-button"); // llama al boton eliminar que esta en el modal
+        botonelim.addEventListener("click",()=>{
+            botonelim.parentElement.parentElement.classList.add("slide-out-top");
+            botonelim.parentElement.parentElement.parentElement.classList.add("fade-out");
+            deleteEmployee(id); // ejecuta la funcion
+
+            setTimeout(()=>{
+            botonelim.parentElement.parentElement.parentElement.classList.remove("overlay");
+            botonelim.parentElement.parentElement.parentElement.classList.remove("fade-out");
+            botonelim.parentElement.parentElement.classList.remove("slide-out-top");
+            }, 500)
+        });
     });
+    return button;
 }
 
 const activateModal = (sectiontoChange) => {
