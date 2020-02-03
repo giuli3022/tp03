@@ -5,7 +5,6 @@ const handleError = err => {
 
 let employees = [];
 let employee;
-const baseUrl = "https://tp-js-2-api-wjfqxquokl.now.sh";
 
 
 

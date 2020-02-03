@@ -1,5 +1,7 @@
 try {
-    const jsGetEmployees = require('./getEmployees'),
+    const jsGetEmployees = require('./getEmployees');
+    const modEmployee = require('./modify-employee'),
+        modifyEmployee = modEmployee.modifyEmployee,
         baseUrl = jsGetEmployees.baseUrl,
         employees = jsGetEmployees.employees,
         handleError = jsGetEmployees.handleError,
@@ -81,12 +83,29 @@ const createEditButton = () => {
     iconEdit.classList.add("material-icons", "yellow");
     iconEdit.innerHTML = "&#xE254";
     button.appendChild(iconEdit);
+
     button.addEventListener("click", () => {
         activateModal(document.querySelector("#modal-edit"));
-        //ACÁ VAN LAS FUNCIONES AL HACER CLIC EN BOTON EDIT
+        let id = button.parentElement.parentElement.firstChild.id; 
+        let botoneditar = document.querySelector("#edit-save-button");
 
-    })
-    // EL ID DE CADA EMPLOYEE ESTA EN EL PRIMER TD, DONDE ESTA EL BOTON DE SELECT, LO PUEDEN SACAR DE AHI
+        botoneditar.addEventListener("click",()=>{
+            let fullname = document.querySelector("#name-edit").value;
+            let email = document.querySelector("#email-edit").value;
+            let address = document.querySelector("#Address-edit").value;
+            let phone = document.querySelector("#Phone-edit").value;
+
+            modifyEmployee(id, fullname, email, address, phone);
+            getEmployees();
+            botoneditar.parentElement.parentElement.classList.add("slide-out-top");
+            botoneditar.parentElement.parentElement.parentElement.classList.add("fade-out");
+            setTimeout(()=>{
+                botoneditar.parentElement.parentElement.parentElement.classList.remove("overlay");
+                botoneditar.parentElement.parentElement.parentElement.classList.remove("fade-out");
+                botoneditar.parentElement.parentElement.classList.remove("slide-out-top");
+                }, 500)
+        });
+    });
     return button;
 }
 

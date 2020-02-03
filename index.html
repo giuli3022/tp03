@@ -80,17 +80,17 @@
                 </header>
                 <form>
                     <label for="name">Name</label>
-                    <input type="text" id="name" maxlength="50" required>
+                    <input type="text" id="name-edit" maxlength="50" required>
                     <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email-edit" required>
                     <label for="Address">Address</label>
-                    <textarea id="Address" rows="2" maxlength="60" required></textarea>
+                    <textarea id="Address-edit" rows="2" maxlength="60" required></textarea>
                     <label for="Phone">Phone</label>
-                    <input type="tel" id="Phone" required>
+                    <input type="tel" id="Phone-edit" required>
                 </form>
                 <footer>
                     <input type="button" value="Cancel" class="close cancelButton modal-button">
-                    <input type="button" value="Save" class="saveButton modal-button">
+                    <input type="button" value="Save" class="saveButton modal-button" id="edit-save-button">
                 </footer>
             </article>
         </section>
@@ -112,7 +112,11 @@
         </section>
         <footer>
             <script src="js/getEmployeesHTML.js"></script>
+
+            <script src="js/modify-employee.js"></script>
+
             <script src="js/postEmployee.js"></script>
+
             <script src="js/delete.js"></script>
             <script src="js/modalButtons.js"></script>
 
