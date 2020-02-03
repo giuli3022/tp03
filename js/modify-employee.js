@@ -1,6 +1,5 @@
 
 
-
 const modifyEmployee = async (id, fullname, email, address, phone) => {
     try {
         let data = {
@@ -22,3 +21,10 @@ const modifyEmployee = async (id, fullname, email, address, phone) => {
         handleError()
     }
 };
+ 
+
+try {
+    module.exports = {
+        modifyEmployee,
+    }
+} catch (e) { }
