@@ -66,10 +66,10 @@ const createSelectButton = () => {
     return cell;
 }
 
-const employeesActions = () => {
+const employeesActions = (id) => {
     let cell = document.createElement("td");
-    let iconEdit = createEditButton();
-    let iconDelete = createDeleteButton();
+    let iconEdit = createEditButton(id);
+    let iconDelete = createDeleteButton(id);
     cell.appendChild(iconEdit);
     cell.appendChild(iconDelete);
     return cell;
@@ -88,7 +88,7 @@ const createEditButton = () => {
         activateModal(document.querySelector("#modal-edit"));
         let id = button.parentElement.parentElement.firstChild.id; 
         let botoneditar = document.querySelector("#edit-save-button");
-
+        console.log(id);
         botoneditar.addEventListener("click",()=>{
             let fullname = document.querySelector("#name-edit").value;
             let email = document.querySelector("#email-edit").value;
@@ -96,6 +96,7 @@ const createEditButton = () => {
             let phone = document.querySelector("#Phone-edit").value;
 
             modifyEmployee(id, fullname, email, address, phone);
+            console.log(id);
             getEmployees();
             botoneditar.parentElement.parentElement.classList.add("slide-out-top");
             botoneditar.parentElement.parentElement.parentElement.classList.add("fade-out");
@@ -109,23 +110,23 @@ const createEditButton = () => {
     return button;
 }
 
-const createDeleteButton = id => {
+const createDeleteButton = idaelim => {
     let button = document.createElement("button");
     button.classList.add("transparent-button");
-    let iconDelete = document.createElement("i");
-    iconDelete.setAttribute("title", "Delete");
-    iconDelete.classList.add("material-icons", "red");
-    iconDelete.innerHTML = "&#xE872";
+                let iconDelete = document.createElement("i");
+                iconDelete.setAttribute("title", "Delete");
+                iconDelete.classList.add("material-icons", "red");
+                iconDelete.innerHTML = "&#xE872";
     button.appendChild(iconDelete);
     button.addEventListener("click", () => {
         activateModal(document.querySelector("#modal-delete"));
-        let id = button.parentElement.parentElement.firstChild.id; //llamar al ID que esta en el primer TD
         let botonelim = document.querySelector("#delete-button"); // llama al boton eliminar que esta en el modal
         botonelim.addEventListener("click",()=>{
             botonelim.parentElement.parentElement.classList.add("slide-out-top");
             botonelim.parentElement.parentElement.parentElement.classList.add("fade-out");
-            deleteEmployee(id); // ejecuta la funcion
-
+            deleteEmployee(idaelim);
+            console.log(idaelim);
+            idaelim="";
             setTimeout(()=>{
             botonelim.parentElement.parentElement.parentElement.classList.remove("overlay");
             botonelim.parentElement.parentElement.parentElement.classList.remove("fade-out");
