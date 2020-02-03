@@ -27,9 +27,6 @@ const getEmployees = async () => {
     }
 };
 
-
-
-
 getEmployees();
 
 

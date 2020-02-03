@@ -1,13 +1,14 @@
 try {
     const jsGetEmployees = require('./getEmployees'),
-    baseUrl = jsGetEmployees.baseUrl,
-    employees = jsGetEmployees.employees,
-    handleError = jsGetEmployees.handleError,
-    getEmployees = jsGetEmployees.getEmployees;
-
-} catch (e) {}
-
-
+    
+        baseUrl = jsGetEmployees.baseUrl,
+        employees = jsGetEmployees.employees,
+        handleError = jsGetEmployees.handleError,
+        getEmployees = jsGetEmployees.getEmployees;
+        
+    const del = require('./delete'),
+        deleteEmployee = del.deleteEmployee;
+} catch (e) { }
 
 
 const getEmployeesHTML = () => {
@@ -30,7 +31,7 @@ const getEmployeesHTML = () => {
         let cellPhone = document.createElement("td");
         cellPhone.innerHTML = employee.phone;
 
-        let cellActions = employeesActions();
+        let cellActions = employeesActions(employee.id); //acciones de empleados por cada uno
 
         row.appendChild(tdSelect);
         row.appendChild(cellName);
@@ -74,11 +75,11 @@ const employeesActions = () => {
     return cell;
 }
 
-const createEditButton = () =>{
+const createEditButton = () => {
     let button = document.createElement("button");
     button.classList.add("transparent-button");
     let iconEdit = document.createElement("i");
-    iconEdit.setAttribute("title","Edit");
+    iconEdit.setAttribute("title", "Edit");
     iconEdit.classList.add("material-icons", "yellow");
     iconEdit.innerHTML = "&#xE254";
     button.appendChild(iconEdit);
@@ -87,16 +88,21 @@ const createEditButton = () =>{
     return button;
 }
 
-const createDeleteButton = () =>{
+const createDeleteButton = id => {
     let button = document.createElement("button");
     button.classList.add("transparent-button");
     let iconDelete = document.createElement("i");
-    iconDelete.setAttribute("title","Delete");
+    iconDelete.setAttribute("title", "Delete");
+    //buscar el addEventListener de esto. El modal tiene que tener el delette employee. 
+    button.addEventListener("click", (e) => {
+        let id = button.parentElement.parentElement.firstChild.id;
+        deleteEmployee(id)
+    });
     iconDelete.classList.add("material-icons", "red");
     iconDelete.innerHTML = "&#xE872";
     button.appendChild(iconDelete);
     //ACA VAN LAS FUNCIONES AL HACER CLIC EN BOTON DELETE
-    // EL ID DE CADA EMPLOYEE ESTA EN EL PRIMER TD, DONDE ESTA EL BOTON DE SELECT, LO PUEDEN SACAR DE AHI
+    //EL ID DE CADA EMPLOYEE ESTA EN EL PRIMER TD, DONDE ESTA EL BOTON DE SELECT, LO PUEDEN SACAR DE AHI
     return button;
 }
 
@@ -108,4 +114,4 @@ try {
         createEditButton,
         createDeleteButton
     }
- } catch (e) {}
+} catch (e) { }
