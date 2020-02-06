@@ -8,8 +8,9 @@ try {
         getEmployees = jsGetEmployees.getEmployees;
     const del = require('./delete'),
         deleteEmployee = del.deleteEmployee;
-} catch (e) { }
+} catch (e) {}
 
+let selectId;
 
 const getEmployeesHTML = () => {
     const table = document.querySelector("#employees-list");
@@ -31,8 +32,13 @@ const getEmployeesHTML = () => {
         let cellPhone = document.createElement("td");
         cellPhone.innerHTML = employee.phone;
 
-        let cellActions = employeesActions(employee.id, employee.fullname,employee.email, employee.address,employee.phone); //acciones de empleados por cada uno
+        let cellActions = document.createElement("td");
 
+        let botonEdit = createEditButton(employee.id, employee.fullname, employee.email, employee.address, employee.phone)
+        let botonDelete = createDeleteButton(employee.id)
+
+        cellActions.appendChild(botonEdit);
+        cellActions.appendChild(botonDelete);
         row.appendChild(tdSelect);
         row.appendChild(cellName);
         row.appendChild(cellMail);
@@ -66,15 +72,6 @@ const createSelectButton = () => {
     return cell;
 }
 
-const employeesActions = (id, name, mail, adress, phone) => {
-    let cell = document.createElement("td");
-    let iconEdit = createEditButton(id, name, mail, adress, phone);
-    let iconDelete = createDeleteButton(id);
-    cell.appendChild(iconEdit);
-    cell.appendChild(iconDelete);
-    return cell;
-}
-
 const createEditButton = (idtoChange, name, mail, adress, phone) => {
     let button = document.createElement("button");
     button.classList.add("transparent-button");
@@ -90,24 +87,7 @@ const createEditButton = (idtoChange, name, mail, adress, phone) => {
         document.querySelector("#email-edit").value = mail;
         document.querySelector("#Address-edit").value = adress;
         document.querySelector("#Phone-edit").value = phone;
-
-        let botoneditar = document.querySelector("#edit-save-button");
-        botoneditar.addEventListener("click",()=>{
-            let fullname = document.querySelector("#name-edit").value;
-            let email = document.querySelector("#email-edit").value;
-            let address = document.querySelector("#Address-edit").value;
-            let phone = document.querySelector("#Phone-edit").value;
-            modifyEmployee(idtoChange, fullname, email, address, phone);
-            idtoChange = ""
-            getEmployees();
-            botoneditar.parentElement.parentElement.classList.add("slide-out-top");
-            botoneditar.parentElement.parentElement.parentElement.classList.add("fade-out");
-            setTimeout(()=>{
-                botoneditar.parentElement.parentElement.parentElement.classList.remove("overlay");
-                botoneditar.parentElement.parentElement.parentElement.classList.remove("fade-out");
-                botoneditar.parentElement.parentElement.classList.remove("slide-out-top");
-                }, 500)
-        });
+        selectId = idtoChange;
     });
     return button;
 }
@@ -115,52 +95,72 @@ const createEditButton = (idtoChange, name, mail, adress, phone) => {
 const createDeleteButton = idaelim => {
     let button = document.createElement("button");
     button.classList.add("transparent-button");
-                let iconDelete = document.createElement("i");
-                iconDelete.setAttribute("title", "Delete");
-                iconDelete.classList.add("material-icons", "red");
-                iconDelete.innerHTML = "&#xE872";
+    let iconDelete = document.createElement("i");
+    iconDelete.setAttribute("title", "Delete");
+    iconDelete.classList.add("material-icons", "red");
+    iconDelete.innerHTML = "&#xE872";
     button.appendChild(iconDelete);
     button.addEventListener("click", () => {
         activateModal("#modal-delete");
-        let botonelim = document.querySelector("#delete-button"); // llama al boton eliminar que esta en el modal
-        botonelim.addEventListener("click",()=>{
-            botonelim.parentElement.parentElement.classList.add("slide-out-top");
-            botonelim.parentElement.parentElement.parentElement.classList.add("fade-out");
-            deleteEmployee(idaelim);
-            idaelim="";
-            setTimeout(()=>{
-            botonelim.parentElement.parentElement.parentElement.classList.remove("overlay");
-            botonelim.parentElement.parentElement.parentElement.classList.remove("fade-out");
-            botonelim.parentElement.parentElement.classList.remove("slide-out-top");
-            }, 500)
-        });
+        selectId = idaelim;
     });
     return button;
 }
 
+const botonelim = document.querySelector("#delete-button");
+
+botonelim.addEventListener("click", () => {
+    deactivateModal(botonelim)
+    deleteEmployee(selectId);
+});
+
+const botonSave = document.querySelector("#edit-save-button");
+
+botonSave.addEventListener("click", () => {
+let fullname = document.querySelector("#name-edit").value;
+let email = document.querySelector("#email-edit").value;
+let address = document.querySelector("#Address-edit").value;
+let phone = document.querySelector("#Phone-edit").value;
+    modifyEmployee(selectId, fullname, email, address, phone);
+    deactivateModal(botonSave)
+})
+
+
 const activateModal = (idsectiontoChange) => {
-        let sectiontoChange = document.querySelector(idsectiontoChange)
-        sectiontoChange.classList.add("overlay");
+    let sectiontoChange = document.querySelector(idsectiontoChange)
+    sectiontoChange.classList.add("overlay");
+}
+
+const deactivateModal = (boton) => {
+    boton.parentElement.parentElement.classList.add("slide-out-top");
+    boton.parentElement.parentElement.parentElement.classList.add("fade-out");
+    setTimeout(() => {
+        boton.parentElement.parentElement.parentElement.classList.remove("overlay");
+        boton.parentElement.parentElement.parentElement.classList.remove("fade-out");
+        boton.parentElement.parentElement.classList.remove("slide-out-top");
+    }, 500)
+}
+
+
+///////////// FUNCIONES DEL BOTON "AGREGAR EMPLEADO - PARA HACER QUE FUNCIONE EL MODAL"
+let addButton = document.querySelector("#addEmployee");
+addButton.addEventListener("click", () => {
+    activateModal(document.querySelector("#modal-add"));
+    ///OTRAS FUNCIONES DE AGREGAR
+})
+///////////////////////////////////////////
+
+////////////FUNCIONES DEL BOTON "ELIMINAR TODO - PARA HACER QUE FUNCIONE EL MODAL"
+let deleteAllButton = document.querySelector("#button-delete-all");
+deleteAllButton.addEventListener("click", () => {
+    activateModal(document.querySelector("#modal-delete"));
+    ///OTRAS FUNCIONES DE ELIMINAR
+})
+
+try {
+    module.exports = {
+        getEmployeesHTML,
+        deactivateModal,
+        selectId
     }
-
-
-    ///////////// FUNCIONES DEL BOTON "AGREGAR EMPLEADO - PARA HACER QUE FUNCIONE EL MODAL"
-    let addButton = document.querySelector("#addEmployee");
-    addButton.addEventListener("click", () => {
-        activateModal(document.querySelector("#modal-add"));
-        ///OTRAS FUNCIONES DE AGREGAR
-    })
-    ///////////////////////////////////////////
-
-    ////////////FUNCIONES DEL BOTON "ELIMINAR TODO - PARA HACER QUE FUNCIONE EL MODAL"
-    let deleteAllButton = document.querySelector("#button-delete-all");
-    deleteAllButton.addEventListener("click", () => {
-        activateModal(document.querySelector("#modal-delete"));
-        ///OTRAS FUNCIONES DE ELIMINAR
-    })
-
-    try {
-        module.exports = {
-            getEmployeesHTML,
-        }
-    } catch (e) { }
+} catch (e) {}
