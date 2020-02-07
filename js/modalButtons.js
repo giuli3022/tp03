@@ -1,7 +1,3 @@
-try {
-    const getEmployees = require('./getEmployeesHTML'),
-    deactivateModal = getEmployees.deactivateModal;
-} catch (e) { }
 
 
 let closeButton = document.querySelectorAll(".close");

@@ -1,16 +1,3 @@
-try {
-    const jsGetEmployees = require('./getEmployees');
-    const modEmployee = require('./modify-employee'),
-        modifyEmployee = modEmployee.modifyEmployee,
-        baseUrl = jsGetEmployees.baseUrl,
-        employees = jsGetEmployees.employees,
-        handleError = jsGetEmployees.handleError,
-        getEmployees = jsGetEmployees.getEmployees;
-    const del = require('./delete'),
-        deleteEmployee = del.deleteEmployee;
-    const postEmployee = require('./postEmployee'),
-        createEmployee = postEmployee.createEmployee;
-} catch (e) { }
 
 let selectId;
 
@@ -145,21 +132,15 @@ const deactivateModal = (boton) => {
 
 
 ///////////// FUNCIONES DEL BOTON "AGREGAR EMPLEADO - PARA HACER QUE FUNCIONE EL MODAL"
-let addButton = document.querySelector("#addEmployee");
-const submitEmployee = document.querySelector("#create-employee");
-const addEmployee = document.querySelector("#addEmployee")
-
-addEmployee.addEventListener("click", () => { activateModal("#modal-add") })
-submitEmployee.addEventListener("click", () => { createEmployee(); deactivateModal(submitEmployee)});
+const addButton = document.querySelector("#addEmployee");
 addButton.addEventListener("click", () => {
     activateModal("#modal-add");
-    ///OTRAS FUNCIONES DE AGREGAR
-})
-///////////////////////////////////////////
-try {
-    module.exports = {
-        getEmployeesHTML,
-        deactivateModal,
-        selectId
-    }
-} catch (e) { }
+});
+
+///////////// FUNCIONES DEL BOTON "GUARDAR EMPLEADO"
+const submitEmployee = document.querySelector("#create-employee");
+submitEmployee.addEventListener("click", () => {
+    createEmployee();
+    deactivateModal(submitEmployee);
+});
+

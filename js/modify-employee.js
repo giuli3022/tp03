@@ -1,14 +1,4 @@
-try {
-    const jsGetEmployees = require('./getEmployees');
-    const modEmployee = require('./modify-employee'),
-        modifyEmployee = modEmployee.modifyEmployee,
-        baseUrl = jsGetEmployees.baseUrl,
-        employees = jsGetEmployees.employees,
-        handleError = jsGetEmployees.handleError,
-        getEmployees = jsGetEmployees.getEmployees;
-    const del = require('./delete'),
-        deleteEmployee = del.deleteEmployee;
-} catch (e) { }
+
 
 
 
@@ -34,12 +24,3 @@ const modifyEmployee = async (id, fullname, email, address, phone) => {
     }
 };
  
-
-try {
-    module.exports = {
-        baseUrl,
-        employees,
-        handleError,
-        getEmployees
-    }
- } catch (e) {}

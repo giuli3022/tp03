@@ -29,10 +29,3 @@ const createEmployee = async () => {
     }
 
 };
-
-try {
-    module.exports = {
-        createEmployee,
-        // clearForm
-    }
-} catch (e) { }
