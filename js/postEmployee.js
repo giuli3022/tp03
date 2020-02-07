@@ -1,10 +1,10 @@
 
 const clearForm = () => {
 
-    document.getElementById("name").value=""
-    document.getElementById("email").value=""
-    document.getElementById("address").value=""
-    document.getElementById("phone").value=""
+    document.getElementById("name").value = ""
+    document.getElementById("email").value = ""
+    document.getElementById("address").value = ""
+    document.getElementById("phone").value = ""
 
 }
 
@@ -30,8 +30,10 @@ const createEmployee = async () => {
         console.log(error)
     }
 
-
 };
+
+const addEmployee = document.getElementById("addEmployee")
+addEmployee.addEventListener("click", () => { activateModal("#modal-add") })
 
 const submitEmployee = document.getElementById("create-employee");
 
