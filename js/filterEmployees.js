@@ -1,7 +1,6 @@
 
 
 const search = async () => {
-
     const text = event.target.value;
     try {
         const filtered = await axios.get(`${baseUrl}?search=${text}`);

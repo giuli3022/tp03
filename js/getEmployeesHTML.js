@@ -1,4 +1,6 @@
 
+///////////// FUNCIÓN PARA IMPRIMIR LISTA
+
 let selectId;
 
 const getEmployeesHTML = () => {
@@ -23,8 +25,8 @@ const getEmployeesHTML = () => {
 
         let cellActions = document.createElement("td");
 
-        let botonEdit = createEditButton(employee.id, employee.fullname, employee.email, employee.address, employee.phone)
-        let botonDelete = createDeleteButton(employee.id)
+        let botonEdit = createEditButton(employee.id, employee.fullname, employee.email, employee.address, employee.phone);
+        let botonDelete = createDeleteButton(employee.id);
 
         cellActions.appendChild(botonEdit);
         cellActions.appendChild(botonDelete);
@@ -39,20 +41,24 @@ const getEmployeesHTML = () => {
     })
 };
 
+
+
+///////////// FUNCIÓN QUE CREA EL CHECK DE CADA <TR>
+
 const createSelectButton = () => {
     let cell = document.createElement("td");
     const select = document.createElement("label");
     select.classList.add("check");
     const icon1 = document.createElement("i");
     icon1.classList.add("material-icons");
-    icon1.classList.add("unchecked")
+    icon1.classList.add("unchecked");
     icon1.innerHTML = "check_box_outline_blank";
     const input = document.createElement("input");
     input.setAttribute("type", "checkbox");
     input.classList.add("checkbox");
     const icon2 = document.createElement("i");
     icon2.classList.add("material-icons");
-    icon2.classList.add("checked")
+    icon2.classList.add("checked");
     icon2.innerHTML = "check_box";
     select.appendChild(icon1);
     select.appendChild(input);
@@ -60,6 +66,10 @@ const createSelectButton = () => {
     cell.appendChild(select);
     return cell;
 }
+
+
+
+///////////// FUNCIONES PARA EL BOTÓN DE EDITAR
 
 const createEditButton = (idtoChange, name, mail, adress, phone) => {
     let button = document.createElement("button");
@@ -80,6 +90,21 @@ const createEditButton = (idtoChange, name, mail, adress, phone) => {
     });
     return button;
 }
+
+const botonSave = document.querySelector("#edit-save-button");
+botonSave.addEventListener("click", async () => {
+    let fullname = document.querySelector("#name-edit").value;
+    let email = document.querySelector("#email-edit").value;
+    let address = document.querySelector("#Address-edit").value;
+    let phone = document.querySelector("#Phone-edit").value;
+    let modificar = await modifyEmployee(selectId, fullname, email, address, phone);
+    console.log(modificar);
+    if (modificar === true) {
+        deactivateModal(botonSave);
+    }
+});
+
+///////////// FUNCIONES PARA EL BOTÓN DE ELIMINAR
 
 const createDeleteButton = idaelim => {
     let button = document.createElement("button");
@@ -103,20 +128,12 @@ botonelim.addEventListener("click", () => {
     deleteEmployee(selectId);
 });
 
-const botonSave = document.querySelector("#edit-save-button");
 
-botonSave.addEventListener("click", () => {
-    let fullname = document.querySelector("#name-edit").value;
-    let email = document.querySelector("#email-edit").value;
-    let address = document.querySelector("#Address-edit").value;
-    let phone = document.querySelector("#Phone-edit").value;
-    modifyEmployee(selectId, fullname, email, address, phone);
-    deactivateModal(botonSave)
-})
 
+///////////// FUNCIONES PARA ACTIVAR Y DESACTIVAR MODAL
 
 const activateModal = (idsectiontoChange) => {
-    let sectiontoChange = document.querySelector(idsectiontoChange)
+    let sectiontoChange = document.querySelector(idsectiontoChange);
     sectiontoChange.classList.add("overlay");
 }
 
@@ -126,9 +143,10 @@ const deactivateModal = (boton) => {
     setTimeout(() => {
         boton.parentElement.parentElement.parentElement.classList.remove("overlay");
         boton.parentElement.parentElement.parentElement.classList.remove("fade-out");
-        boton.parentElement.parentElement.classList.remove("slide-out-top");
-    }, 500)
+        boton.parentElement.parentElement.classList.remove("slide-out-top")
+    }, 500);
 }
+
 
 
 ///////////// FUNCIONES DEL BOTON "AGREGAR EMPLEADO - PARA HACER QUE FUNCIONE EL MODAL"
@@ -137,10 +155,16 @@ addButton.addEventListener("click", () => {
     activateModal("#modal-add");
 });
 
+
+
 ///////////// FUNCIONES DEL BOTON "GUARDAR EMPLEADO"
+
 const submitEmployee = document.querySelector("#create-employee");
-submitEmployee.addEventListener("click", () => {
-    createEmployee();
-    deactivateModal(submitEmployee);
+submitEmployee.addEventListener("click", async () => {
+    let crear = await createEmployee();
+    console.log(crear);
+    if (crear === true) {
+        deactivateModal(submitEmployee);
+    }
 });
 
