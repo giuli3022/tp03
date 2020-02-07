@@ -1,20 +1,18 @@
 
 const clearForm = () => {
-
-    document.getElementById("name").value=""
-    document.getElementById("email").value=""
-    document.getElementById("address").value=""
-    document.getElementById("phone").value=""
-
+    document.querySelector("#name").value = ""
+    document.querySelector("#email").value = ""
+    document.querySelector("#address").value = ""
+    document.querySelector("#phone").value = ""
 }
 
 const createEmployee = async () => {
     try {
-        const url = baseUrl
-        const fullname = document.getElementById("name").value
-        const email = document.getElementById("email").value
-        const address = document.getElementById("address").value
-        const phone = document.getElementById("phone").value
+        const url = baseUrl;
+        const fullname = document.querySelector("#name").value;
+        const email = document.querySelector("#email").value;
+        const address = document.querySelector("#address").value;
+        const phone = document.querySelector("#phone").value;
 
         await axios.post(url, {
             fullname,
@@ -26,13 +24,15 @@ const createEmployee = async () => {
         clearForm();
         getEmployees();
 
-    } catch (error) {
-        console.log(error)
+    } catch (err) {
+        handleError();
     }
-
 
 };
 
-const submitEmployee = document.getElementById("create-employee");
-
-submitEmployee.addEventListener("click", createEmployee)
+try {
+    module.exports = {
+        createEmployee,
+        // clearForm
+    }
+} catch (e) { }

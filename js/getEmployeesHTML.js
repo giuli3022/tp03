@@ -8,7 +8,9 @@ try {
         getEmployees = jsGetEmployees.getEmployees;
     const del = require('./delete'),
         deleteEmployee = del.deleteEmployee;
-} catch (e) {}
+    const postEmployee = require('./postEmployee'),
+        createEmployee = postEmployee.createEmployee;
+} catch (e) { }
 
 let selectId;
 
@@ -117,10 +119,10 @@ botonelim.addEventListener("click", () => {
 const botonSave = document.querySelector("#edit-save-button");
 
 botonSave.addEventListener("click", () => {
-let fullname = document.querySelector("#name-edit").value;
-let email = document.querySelector("#email-edit").value;
-let address = document.querySelector("#Address-edit").value;
-let phone = document.querySelector("#Phone-edit").value;
+    let fullname = document.querySelector("#name-edit").value;
+    let email = document.querySelector("#email-edit").value;
+    let address = document.querySelector("#Address-edit").value;
+    let phone = document.querySelector("#Phone-edit").value;
     modifyEmployee(selectId, fullname, email, address, phone);
     deactivateModal(botonSave)
 })
@@ -144,23 +146,20 @@ const deactivateModal = (boton) => {
 
 ///////////// FUNCIONES DEL BOTON "AGREGAR EMPLEADO - PARA HACER QUE FUNCIONE EL MODAL"
 let addButton = document.querySelector("#addEmployee");
+const submitEmployee = document.querySelector("#create-employee");
+const addEmployee = document.querySelector("#addEmployee")
+
+addEmployee.addEventListener("click", () => { activateModal("#modal-add") })
+submitEmployee.addEventListener("click", () => { createEmployee(); deactivateModal(submitEmployee)});
 addButton.addEventListener("click", () => {
-    activateModal(document.querySelector("#modal-add"));
+    activateModal("#modal-add");
     ///OTRAS FUNCIONES DE AGREGAR
 })
 ///////////////////////////////////////////
-
-////////////FUNCIONES DEL BOTON "ELIMINAR TODO - PARA HACER QUE FUNCIONE EL MODAL"
-let deleteAllButton = document.querySelector("#button-delete-all");
-deleteAllButton.addEventListener("click", () => {
-    activateModal(document.querySelector("#modal-delete"));
-    ///OTRAS FUNCIONES DE ELIMINAR
-})
-
 try {
     module.exports = {
         getEmployeesHTML,
         deactivateModal,
         selectId
     }
-} catch (e) {}
+} catch (e) { }
