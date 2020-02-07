@@ -1,14 +1,3 @@
-try {
-    const jsGetEmployees = require('./getEmployees');
-    const modEmployee = require('./modify-employee'),
-        modifyEmployee = modEmployee.modifyEmployee,
-        baseUrl = jsGetEmployees.baseUrl,
-        employees = jsGetEmployees.employees,
-        handleError = jsGetEmployees.handleError,
-        getEmployees = jsGetEmployees.getEmployees;
-    const del = require('./delete'),
-        deleteEmployee = del.deleteEmployee;
-} catch (e) {}
 
 let selectId;
 
@@ -117,10 +106,10 @@ botonelim.addEventListener("click", () => {
 const botonSave = document.querySelector("#edit-save-button");
 
 botonSave.addEventListener("click", () => {
-let fullname = document.querySelector("#name-edit").value;
-let email = document.querySelector("#email-edit").value;
-let address = document.querySelector("#Address-edit").value;
-let phone = document.querySelector("#Phone-edit").value;
+    let fullname = document.querySelector("#name-edit").value;
+    let email = document.querySelector("#email-edit").value;
+    let address = document.querySelector("#Address-edit").value;
+    let phone = document.querySelector("#Phone-edit").value;
     modifyEmployee(selectId, fullname, email, address, phone);
     deactivateModal(botonSave)
 })
@@ -143,24 +132,15 @@ const deactivateModal = (boton) => {
 
 
 ///////////// FUNCIONES DEL BOTON "AGREGAR EMPLEADO - PARA HACER QUE FUNCIONE EL MODAL"
-let addButton = document.querySelector("#addEmployee");
+const addButton = document.querySelector("#addEmployee");
 addButton.addEventListener("click", () => {
-    activateModal(document.querySelector("#modal-add"));
-    ///OTRAS FUNCIONES DE AGREGAR
-})
-///////////////////////////////////////////
+    activateModal("#modal-add");
+});
 
-////////////FUNCIONES DEL BOTON "ELIMINAR TODO - PARA HACER QUE FUNCIONE EL MODAL"
-let deleteAllButton = document.querySelector("#button-delete-all");
-deleteAllButton.addEventListener("click", () => {
-    activateModal(document.querySelector("#modal-delete"));
-    ///OTRAS FUNCIONES DE ELIMINAR
-})
+///////////// FUNCIONES DEL BOTON "GUARDAR EMPLEADO"
+const submitEmployee = document.querySelector("#create-employee");
+submitEmployee.addEventListener("click", () => {
+    createEmployee();
+    deactivateModal(submitEmployee);
+});
 
-try {
-    module.exports = {
-        getEmployeesHTML,
-        deactivateModal,
-        selectId
-    }
-} catch (e) {}

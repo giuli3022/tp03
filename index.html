@@ -18,10 +18,11 @@
         <section class="main">
             <header class="main-header">
                 <h1>Manage <strong>Employees</strong></h1>
-                <button class="addButton" id="addEmployee"><i class="material-icons">&#xE147;</i>Add New Employee</button>
+                <button class="addButton" id="addEmployee"><i class="material-icons">&#xE147;</i>Add New
+                    Employee</button>
             </header>
             <nav>
-                <input type="text" placeholder="Filter...">
+                <input id="filter" type="text" placeholder="Filter...">
             </nav>
             <article class="table-container">
                 <table>
@@ -42,13 +43,12 @@
                         </tr>
                     </thead>
                     <tbody id="employees-list">
-                        
+
                     </tbody>
+
                 </table>
             </article>
-            <footer>
-                <button class="deleteButton" id="button-delete-all"> <i class="material-icons" title="Delete">&#xE872;</i> Delete All</button>
-            </footer>
+    
         </section>
         <section class="modal" id="modal-add">
             <article class="modal-form slide-in-top">
@@ -60,7 +60,7 @@
                     <label for="name">Name</label>
                     <input type="text" id="name" maxlength="50" required>
                     <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                     <label for="address">Address</label>
                     <textarea id="address" rows="2" maxlength="60" required></textarea>
                     <label for="phone">Phone</label>
@@ -113,12 +113,18 @@
         <footer>
             <script src="js/getEmployeesHTML.js"></script>
 
+            <script src="js/get-employee.js"></script>
+
             <script src="js/modify-employee.js"></script>
 
             <script src="js/postEmployee.js"></script>
 
             <script src="js/delete.js"></script>
+
             <script src="js/modalButtons.js"></script>
+            <script src="js/selectAll.js"></script>
+
+      
 
         </footer>
         </body>

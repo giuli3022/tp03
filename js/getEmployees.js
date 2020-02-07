@@ -1,7 +1,3 @@
-try {
-    const employeesHTML = require('./getEmployeesHTML');
-    const getEmployeesHTML = employeesHTML.getEmployeesHTML;
-} catch (e) {}
 
 const baseUrl = "https://tp-js-2-api-wjfqxquokl.now.sh/users";
 
@@ -25,12 +21,3 @@ const getEmployees = async () => {
 
 getEmployees();
 
-
-try {
-    module.exports = {
-        baseUrl,
-        employees,
-        handleError,
-        getEmployees
-    }
- } catch (e) {}
