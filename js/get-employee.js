@@ -1,29 +1,17 @@
-const handleError = err => {
-    alert(`Error loading.`);
-    throw `Error loading. ${err}`
-};
-
-let employees = [];
-let employee;
 
 
+const search = async () => {
 
-const getEmployees = async () => {
+    const text = event.target.value;
     try {
-        const res = await axios.get(`${baseUrl}/users`);
-        employees = res.data;
-    } catch (err) {
+        const filtered = await axios.get(`${baseUrl}?search=${text}`);
+        employees = filtered.data;
+        getEmployeesHTML();
+    }
+    catch (err) {
         handleError();
     }
-};
+}
 
-
-const getEmployee = async (user) => {
-    try {
-        const res = await axios.get(`${baseUrl}/users?search=${user}`);
-        employee = res.data;
-    } catch (err) {
-        handleError();
-    }
-};
-
+const filter = document.querySelector("#filter");
+filter.addEventListener("keyup", search);
