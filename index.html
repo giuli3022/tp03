@@ -14,6 +14,9 @@
         <title>Manage Employees</title>
     </head>
 
+
+    <!--MAIN SECTION-->
+
     <div>
         <section class="main">
             <header class="main-header">
@@ -49,6 +52,9 @@
                 </table>
             </article>
     
+
+    <!--MODAL ADD-->
+    
         </section>
         <section class="modal" id="modal-add">
             <article class="modal-form slide-in-top">
@@ -74,10 +80,12 @@
         </section>
         <section class="modal" id="modal-edit">
             <article class="modal-form slide-in-top">
+
                 <header>
                     <h2>Edit Employee</h2>
                     <button class="closeButton close">x</button>
                 </header>
+
                 <form>
                     <label for="name">Name</label>
                     <input type="text" id="name-edit" maxlength="50" required>
@@ -88,32 +96,47 @@
                     <label for="Phone">Phone</label>
                     <input type="tel" id="Phone-edit" required>
                 </form>
+
                 <footer>
                     <input type="button" value="Cancel" class="close cancelButton modal-button">
                     <input type="button" value="Save" class="saveButton modal-button" id="edit-save-button">
                 </footer>
+
             </article>
         </section>
+
+
+        <!--MODAL DELETE-->
+
         <section class="modal" id="modal-delete">
             <article class="modal-form delete slide-in-top">
+
                 <header>
                     <h2>Delete Employee</h2>
                     <button class="closeButton close">x</button>
                 </header>
+
                 <div class="delete-question">
                     <p>Are you sure you want to delete this records?</p>
                     <p>This action cannot be undone</p>
                 </div>
+
                 <footer id="modal-delete-footer">
                     <input type="button" value="Cancel" class="close cancelButton modal-button">
                     <input type="button" value="Delete" class="deleteButton modal-button" id="delete-button">
                 </footer>
+
             </article>
         </section>
+
+
+        <!--SCRIPTS-->
+
         <footer>
+
             <script src="js/getEmployeesHTML.js"></script>
 
-            <script src="js/get-employee.js"></script>
+            <script src="js/filterEmployees.js"></script>
 
             <script src="js/modify-employee.js"></script>
 
@@ -122,11 +145,11 @@
             <script src="js/delete.js"></script>
 
             <script src="js/modalButtons.js"></script>
+
             <script src="js/selectAll.js"></script>
 
-      
-
         </footer>
+
         </body>
 
-        </html
+        </html>
