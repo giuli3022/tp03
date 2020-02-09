@@ -51,10 +51,10 @@
 
                 </table>
             </article>
-    
 
-    <!--MODAL ADD-->
-    
+
+            <!--MODAL ADD-->
+
         </section>
         <section class="modal" id="modal-add">
             <article class="modal-form slide-in-top">
@@ -62,7 +62,7 @@
                     <h2>Add Employee</h2>
                     <button class="closeButton close">x</button>
                 </header>
-                <form>
+                <form id="new-employee">
                     <label for="name">Name</label>
                     <input type="text" id="name" maxlength="50" required>
                     <label for="email">Email</label>
@@ -70,11 +70,12 @@
                     <label for="address">Address</label>
                     <textarea id="address" rows="2" maxlength="60" required></textarea>
                     <label for="phone">Phone</label>
-                    <input type="tel" id="phone" required>
+                    <input type="text" id="phone" pattern="[0-9 -]+" required>
                 </form>
                 <footer>
                     <input type="button" value="Cancel" class=" close cancelButton modal-button">
-                    <input id="create-employee" type="submit" value="Add" class="addButton modal-button">
+                    <input id="create-employee" type="submit" form="new-employee" value="Add"
+                        class="addButton modal-button">
                 </footer>
             </article>
         </section>
@@ -86,20 +87,20 @@
                     <button class="closeButton close">x</button>
                 </header>
 
-                <form>
+                <form id="edit-employee-form">
                     <label for="name">Name</label>
                     <input type="text" id="name-edit" maxlength="50" required>
                     <label for="email">Email</label>
-                    <input type="email" id="email-edit" required>
+                    <input type="email" id="email-edit" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
                     <label for="Address">Address</label>
                     <textarea id="Address-edit" rows="2" maxlength="60" required></textarea>
                     <label for="Phone">Phone</label>
-                    <input type="tel" id="Phone-edit" required>
+                    <input type="tel" id="Phone-edit" pattern="[0-9 -]+" required>
                 </form>
 
                 <footer>
                     <input type="button" value="Cancel" class="close cancelButton modal-button">
-                    <input type="button" value="Save" class="saveButton modal-button" id="edit-save-button">
+                    <input type="submit" value="Save" class="saveButton modal-button" id="edit-save-button" form="edit-employee-form">
                 </footer>
 
             </article>

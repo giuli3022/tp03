@@ -92,13 +92,14 @@ const createEditButton = (idtoChange, name, mail, adress, phone) => {
 }
 
 const botonSave = document.querySelector("#edit-save-button");
-botonSave.addEventListener("click", async () => {
+const submitEditEmployee = document.querySelector('#edit-employee-form')
+submitEditEmployee.addEventListener("submit", async (e) => {
+    e.preventDefault();
     let fullname = document.querySelector("#name-edit").value;
     let email = document.querySelector("#email-edit").value;
     let address = document.querySelector("#Address-edit").value;
     let phone = document.querySelector("#Phone-edit").value;
     let modificar = await modifyEmployee(selectId, fullname, email, address, phone);
-    console.log(modificar);
     if (modificar === true) {
         deactivateModal(botonSave);
     }
@@ -158,13 +159,11 @@ addButton.addEventListener("click", () => {
 
 
 ///////////// FUNCIONES DEL BOTON "GUARDAR EMPLEADO"
-
-const submitEmployee = document.querySelector("#create-employee");
-submitEmployee.addEventListener("click", async () => {
-    let crear = await createEmployee();
-    console.log(crear);
-    if (crear === true) {
-        deactivateModal(submitEmployee);
-    }
+const create = document.querySelector("#create-employee");
+const submitEmployee = document.querySelector("#new-employee");
+submitEmployee.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    await createEmployee();
+    deactivateModal(create);
 });
 
