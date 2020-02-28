@@ -1,0 +1,2 @@
+* Cambiar los let por const cuando se hace un querySelector, y cuando van a crear un componente.
+* Cuando voy a agregar o a editar este tiene la misma validacion.Esto se podria hacer en una sola funcion
